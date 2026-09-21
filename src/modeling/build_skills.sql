@@ -2,10 +2,19 @@
 -- Keyword/regex based — a hand-maintained list for now, deliberately simple.
 -- The match pattern and case-sensitivity live in dim_skill as data, so
 -- adding or adjusting a skill later doesn't require touching query logic.
--- R, Go, C, Excel, Express, and React are matched case-sensitively
+--
+-- Go, Excel, Express, React, C++, and C# are matched case-sensitively
 -- (regex_flags = '') since they collide with ordinary English words/verbs
--- in lowercase or mid-sentence use, everything else matches
+-- in lowercase or mid-sentence use everything else matches
 -- case-insensitively ('i').
+--
+-- Deliberately NOT tracking bare "R" or "C" as skills: both collide with
+-- too many things in ordinary business/job-posting text (R&D, requisition
+-- codes, institute abbreviations, C-suite, C-level, company names like
+-- SS&C) to reliably exclude via regex, and Adzuna's descriptions are only
+-- truncated snippets to begin with, so there isn't enough context to do
+-- better. C++ and C# don't have this problem — they're unambiguous on
+-- their own — so they're kept as their own distinct skills.
 
 -- dim_skill
 CREATE OR REPLACE TABLE dim_skill AS
@@ -19,7 +28,6 @@ FROM (VALUES
     ('SQL', '\bSQL\b', 'i'),
     ('AWS', '\bAWS\b', 'i'),
     ('Spark', '\bSpark\b', 'i'),
-    ('R', '\bR\b', ''),
     ('Power BI', '\bPower\s*BI\b', 'i'),
     ('Tableau', '\bTableau\b', 'i'),
     ('Azure', '\bAzure\b', 'i'),
@@ -30,7 +38,8 @@ FROM (VALUES
     ('Hadoop', '\bHadoop\b', 'i'),
     ('Go', '\bGo\b', ''),
     ('PyTorch', '\bPyTorch\b', 'i'),
-    ('C', '\bC\b', ''),
+    ('C++', '\bC\+\+', ''),
+    ('C#', '\bC#', ''),
     ('Snowflake', '\bSnowflake\b', 'i'),
     ('TensorFlow', '\bTensor\s*Flow\b', 'i'),
     ('Kubernetes', '\bKubernetes\b', 'i'),
