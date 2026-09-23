@@ -1,0 +1,13 @@
+# Using an absolute path here because dbt-duckdb's relative-path resolution
+# (via "../") proved unreliable on Windows in testing — it silently dropped
+# the "../" instead of going up a directory. An absolute path sidesteps that
+# ambiguity entirely. Once this moves into Docker/Airflow later, this will
+# get revisited anyway (containers get their own consistent filesystem
+# layout, so the path will need to change regardless).
+job_market_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "C:/Users/Lemontech/Desktop/job-market-data-engineering/data/warehouse/jobs.duckdb"
+      threads: 4

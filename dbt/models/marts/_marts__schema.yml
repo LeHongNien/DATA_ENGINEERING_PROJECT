@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: dim_company
+    columns:
+      - name: company_id
+        tests: [unique, not_null]
+      - name: company_name
+        tests: [not_null]
+
+  - name: dim_location
+    columns:
+      - name: location_id
+        tests: [unique, not_null]
+      - name: location_name
+        tests: [not_null]
+
+  - name: dim_date
+    columns:
+      - name: date_id
+        tests: [unique, not_null]
+
+  - name: fact_job_postings
+    description: One row per unique job posting, same grain as stg_jobs.
+    columns:
+      - name: job_id
+        tests: [unique, not_null]
+      - name: company_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_company')
+                field: company_id
+      - name: location_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_location')
+                field: location_id
+      - name: date_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_id
+
+  - name: job_skills
+    description: Bridge table — many-to-many between jobs and dim_skill.
+    columns:
+      - name: job_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jobs')
+                field: job_id
+      - name: skill_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_skill')
+                field: skill_id

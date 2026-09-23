@@ -1,0 +1,14 @@
+version: 2
+
+seeds:
+  - name: dim_skill
+    description: >
+      Hand-maintained skill vocabulary used for regex extraction against job
+      descriptions. skill_id, match_pattern, and regex_flags are treated as
+      data, not code, so adding or adjusting a skill is a CSV edit, not a
+      model change.
+    columns:
+      - name: skill_id
+        tests: [unique, not_null]
+      - name: skill_name
+        tests: [unique, not_null]

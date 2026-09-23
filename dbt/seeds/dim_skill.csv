@@ -1,0 +1,51 @@
+skill_id,skill_name,match_pattern,regex_flags
+1,Python,\bPython\b,i
+2,SQL,\bSQL\b,i
+3,AWS,\bAWS\b,i
+4,Spark,\bSpark\b,i
+5,Power BI,\bPower\s*BI\b,i
+6,Tableau,\bTableau\b,i
+7,Azure,\bAzure\b,i
+8,Excel,\bExcel\b,cs
+9,GCP,\bGCP\b,i
+10,Java,\bJava\b,i
+11,Databricks,\bDatabricks\b,i
+12,Hadoop,\bHadoop\b,i
+13,Go,\bGo\b,cs
+14,PyTorch,\bPyTorch\b,i
+15,C++,\bC\+\+,cs
+16,C#,\bC#,cs
+17,Snowflake,\bSnowflake\b,i
+18,TensorFlow,\bTensor\s*Flow\b,i
+19,Kubernetes,\bKubernetes\b,i
+20,Docker,\bDocker\b,i
+21,Kafka,\bKafka\b,i
+22,Airflow,\bAirflow\b,i
+23,Scala,\bScala\b,i
+24,Git,\bGit\b,i
+25,Hive,\bHive\b,i
+26,Scikit-learn,\bScikit-learn\b,i
+27,Linux,\bLinux\b,i
+28,Oracle,\bOracle\b,i
+29,Flink,\bFlink\b,i
+30,pandas,\bpandas\b,i
+31,Terraform,\bTerraform\b,i
+32,SAP,\bSAP\b,i
+33,Bash,\bBash\b,i
+34,Redshift,\bRedshift\b,i
+35,NoSQL,\bNoSQL\b,i
+36,PowerPoint,\bPowerPoint\b,i
+37,PostgreSQL,\bPostgreSQL\b,i
+38,Express,\bExpress\b,cs
+39,dbt,\bdbt\b,i
+40,BigQuery,\bBigQuery\b,i
+41,SQL Server,\bSQL\s*Server\b,i
+42,GitHub,\bGitHub\b,i
+43,Langchain,\bLangchain\b,i
+44,Informatica,\bInformatica\b,i
+45,MySQL,\bMySQL\b,i
+46,React,\bReact\b,cs
+47,NumPy,\bNumPy\b,i
+48,Delta Lake,\bDelta\s*Lakes?\b,i
+49,Azure Data Factory,\bData\s*Factory\b,i
+50,Jira,\bJira\b,i
